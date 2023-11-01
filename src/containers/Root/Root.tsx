@@ -5,6 +5,8 @@ import { BigSpinner } from "src/components/BigSpinner.tsx";
 import { Layout } from "./components/Layout.tsx";
 import { ErrorBoundary } from "src/components/ErrorBoundary.tsx";
 
+import { FileContextProvider } from "src/contexts/FileContext.tsx";
+
 const ConvertorPage = lazy(() => import("src/pages/Explorer/ExplorerPage.tsx"));
 
 const router = createBrowserRouter([
@@ -24,7 +26,9 @@ const router = createBrowserRouter([
 export function Root(): ReactElement {
   return (
     <Suspense fallback={<BigSpinner />}>
-      <RouterProvider router={router} />
+      <FileContextProvider>
+        <RouterProvider router={router} />
+      </FileContextProvider>
     </Suspense>
   );
 }

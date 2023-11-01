@@ -1,6 +1,6 @@
 # mdtex
 
-Material Design palette &amp; tokens explorer
+Material design tokens explorer
 
 ## How to run locally
 

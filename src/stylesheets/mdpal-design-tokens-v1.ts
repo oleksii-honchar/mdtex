@@ -115,7 +115,7 @@ module.exports = {
         }
       },
       "ref": {
-        "palette": {
+        "pal": {
           "primary": "#23B7DC",
           "secondary": "#B7DC23",
           "neutral": "#A8A29E",

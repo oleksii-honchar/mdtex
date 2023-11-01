@@ -3,7 +3,7 @@ export function Title() {
     <div className="w-full space-x-4 flex flex-col justify-center items-center">
       <p
         className={`
-          text-md3-sys-light-primary
+          text-md-sys-on-background
           font-bold
           text-xl 
         `}
@@ -12,11 +12,11 @@ export function Title() {
       </p>
       <p
         className={`
-          text-md3-sys-light-primary
+          text-md-sys-on-background
           text-xs 
         `}
       >
-        &quot;Material Design&quot; palette &amp; tokens explorer
+        Material design tokens explorer
       </p>
     </div>
   );

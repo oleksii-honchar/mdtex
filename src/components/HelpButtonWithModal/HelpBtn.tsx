@@ -12,9 +12,13 @@ export function HelpBtn() {
           setIsOpen(true);
         }}
         className={`
-        text-md3-sys-light-on-primary bg-md3-ref-primary-primary40
-        flex flex-row items-center justify-center
-        rounded-full h-6 w-6 text-sm font-medium cursor-pointer`}
+          h-10 w-10
+          text-md-sys-light-on-surface bg-md-sys-light-surface
+          flex flex-row items-center justify-center
+          text-sm font-medium
+          rounded-full cursor-pointer transition-all
+          shadow hover:shadow-md
+        `}
       >
         ?
       </div>
