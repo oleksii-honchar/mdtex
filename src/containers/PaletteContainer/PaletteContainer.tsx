@@ -4,11 +4,13 @@ import { LoggerService } from "@ciklum/logan";
 import { toast } from "react-toastify";
 
 import { classNames } from "src/utils/classNames.ts";
+import { nl } from "src/utils/native-lodash.ts";
 
 import Palette from "./components/Palette.tsx";
 import { useContext, useEffect, useState } from "react";
 import { FileContext } from "src/contexts/FileContext.tsx";
 import { mdTokensSchema } from "./schema/mdTokensSchema.ts";
+import PalettePlaceholder from "./components/PalettePlaceholder.tsx";
 
 const logger = new LoggerService();
 logger.setTitle("PaletteContainer");
@@ -22,7 +24,7 @@ export default function PaletteContainer() {
     try {
       mdTokensJson = JSON.parse(content);
       mdTokensJson = joi.attempt(mdTokensJson, mdTokensSchema);
-      const msg = "File schema validation successful";
+      const msg = "MD Tokens parsed and applied";
       logger.debug(msg);
       toast.success(msg);
       setMdTokens(mdTokensJson);
@@ -47,10 +49,11 @@ export default function PaletteContainer() {
       id="PaletteContainer"
       className={`
           w-full max-w-3xl md:max-w-4xl lg:max-w-6xl
-          px-2 flex flex-col flex-grow 
+          px-2 flex flex-col flex-grow
         `}
     >
-      <Palette mdTokens={mdTokens} />
+      {!nl.isObjectEmpty(mdTokens) && <Palette mdTokens={mdTokens} />}
+      {nl.isObjectEmpty(mdTokens) && <PalettePlaceholder />}
     </div>
   );
 }

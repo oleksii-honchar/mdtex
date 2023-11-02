@@ -1,3 +1,5 @@
+import { StringIndex } from "src/typings";
+
 function pick(object, keys) {
   return keys.reduce((obj, key) => {
     if (object && object.hasOwnProperty(key)) {
@@ -33,8 +35,14 @@ function get(obj, path, defaultValue = undefined) {
   const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
   return result === undefined || result === obj ? defaultValue : result;
 }
+
+function isObjectEmpty(obj: StringIndex): boolean {
+  return Object.keys(obj).length === 0;
+}
+
 export const nl = {
   pick,
   get,
   set,
+  isObjectEmpty,
 };

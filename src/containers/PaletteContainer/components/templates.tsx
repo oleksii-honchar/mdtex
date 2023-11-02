@@ -1,3 +1,5 @@
+import { css } from "@emotion/react";
+
 import type { StringIndex } from "src/typings/index.d.ts";
 import { classNames } from "src/utils/classNames.ts";
 
@@ -35,12 +37,16 @@ export function ColorShadeName({ shadeName, toShowOnHover }: StringIndex) {
 }
 
 export function KeyColor({ name, textColor, bgColor, colorHash }: StringIndex) {
+  const style = css`
+    color: ${textColor};
+    background-color: ${bgColor};
+  `;
+
   return (
     <div
+      css={style}
       className={`
       flex items-start justify-center w-full p-1
-      ${textColor}
-      ${bgColor}
       relative
       rounded-lg
       border-2 border-transparent
@@ -58,7 +64,7 @@ export function KeyColor({ name, textColor, bgColor, colorHash }: StringIndex) {
 export function PaletteColorPair({ colorPair }: StringIndex) {
   return (
     <div tmpl="PaletteColorPair" className="flex flex-col w-full">
-      {colorPair.map((color, idx) => (
+      {colorPair.map((color: StringIndex, idx: number) => (
         <PaletteColor key={`col-pair-${idx}`} {...color} />
       ))}
     </div>
@@ -66,14 +72,18 @@ export function PaletteColorPair({ colorPair }: StringIndex) {
 }
 
 export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName }: StringIndex) {
+  const style = css`
+    color: ${textColor};
+    background-color: ${bgColor};
+  `;
+
   return (
     <div
       tmpl="PaletteColor"
+      css={style}
       className={`
           flex items-start justify-start w-full p-1 h-14 
           last:h-12 last:text-[12px]
-          ${textColor}
-          ${bgColor}
           relative text-[14px]
           first:rounded-t-lg last:rounded-b-lg
           border-2 border-transparent
@@ -90,12 +100,16 @@ export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName }:
 }
 
 export function ColorShade({ name, textColor, bgColor, colorHash, shadeName }: StringIndex) {
+  const style = css`
+    color: ${textColor};
+    background-color: ${bgColor};
+  `;
+
   return (
     <div
+      css={style}
       className={`
           flex items-center justify-start w-full h-8 p-1
-          ${textColor}
-          ${bgColor}
           relative text-[14px]
           group
           first:rounded-t-lg last:rounded-b-lg
@@ -115,7 +129,7 @@ export function ColorShade({ name, textColor, bgColor, colorHash, shadeName }: S
 export function PaletteColorCol({ colorCol }: StringIndex) {
   return (
     <div className="flex flex-col w-full gap-2">
-      {colorCol.map((colorPair, idx) => (
+      {colorCol.map((colorPair: StringIndex, idx: number) => (
         <PaletteColorPair key={`col-pair-${idx}`} colorPair={colorPair} />
       ))}
     </div>

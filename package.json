@@ -41,7 +41,7 @@
   "devDependencies": {
     "@ciklum/logan": "0.4.10",
     "@emotion/eslint-plugin": "11.11.0",
-    "@emotion/react": "11.11.1",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "11.11.0",
     "@popperjs/core": "^2.11.8",
     "@tsconfig/node20": "20.1.2",
