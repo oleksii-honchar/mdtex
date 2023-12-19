@@ -127,7 +127,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
         bgColor: nl.get(tokens, "colors.md.sys.light.surface"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-surface"),
         colorHash: nl.get(tokens, "colors.md.sys.light.surface"),
-        shadeName: "N-10",
+        shadeName: "N-20",
       },
       {
         name: "On Surface",

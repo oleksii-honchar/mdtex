@@ -63,7 +63,7 @@ export function KeyColor({ name, textColor, bgColor, colorHash }: StringIndex) {
 
 export function PaletteColorPair({ colorPair }: StringIndex) {
   return (
-    <div tmpl="PaletteColorPair" className="flex flex-col w-full">
+    <div className="flex flex-col w-full">
       {colorPair.map((color: StringIndex, idx: number) => (
         <PaletteColor key={`col-pair-${idx}`} {...color} />
       ))}
@@ -79,7 +79,6 @@ export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName }:
 
   return (
     <div
-      tmpl="PaletteColor"
       css={style}
       className={`
           flex items-start justify-start w-full p-1 h-14 
@@ -109,8 +108,11 @@ export function ColorShade({ name, textColor, bgColor, colorHash, shadeName }: S
     <div
       css={style}
       className={`
-          flex items-center justify-start w-full h-8 p-1
-          relative text-[14px]
+          flex justify-start w-full h-8 
+          relative 
+          items-center hover:items-start
+          text-[14px] hover:text-[12px]
+          p-1 hover:pt-0
           group
           first:rounded-t-lg last:rounded-b-lg
           border-2 border-transparent
