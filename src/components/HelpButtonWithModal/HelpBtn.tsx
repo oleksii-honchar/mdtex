@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "src/components/Tooltip";
 import { HelpModalDialog } from "./HelpModalDialog";
 
 export function HelpBtn() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <div
+    <Tooltip>
+      <TooltipTrigger
         key="help"
         onClick={() => {
           setIsOpen(true);
@@ -21,8 +22,9 @@ export function HelpBtn() {
         `}
       >
         ?
-      </div>
+      </TooltipTrigger>
+      <TooltipContent className="Tooltip">My tooltip</TooltipContent>
       <HelpModalDialog setIsOpen={setIsOpen} isOpen={isOpen} />
-    </>
+    </Tooltip>
   );
 }
