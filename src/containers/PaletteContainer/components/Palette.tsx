@@ -2,13 +2,13 @@ import PropTypes, { InferProps } from "prop-types";
 
 import { ColorShade, KeyColor, PaletteColorCol } from "./templates.tsx";
 
-import { keyColorsFrom } from "../schema/colors-data/key-colors.data.ts";
-import { sysLightColorsFrom } from "../schema/colors-data/sys-light-colors.data.ts";
-import { primaryShadesFrom } from "../schema/colors-data/primary-shades.data.ts";
-import { secondaryShadesFrom } from "../schema/colors-data/secondary-shades.data.ts";
 import { errorShadesFrom } from "../schema/colors-data/error-shades.data.ts";
+import { keyColorsFrom } from "../schema/colors-data/key-colors.data.ts";
 import { neutralShadesFrom } from "../schema/colors-data/neutral-shades.data.ts";
 import { neutralVShadesFrom } from "../schema/colors-data/neutral-variant-shades.data.ts";
+import { primaryShadesFrom } from "../schema/colors-data/primary-shades.data.ts";
+import { secondaryShadesFrom } from "../schema/colors-data/secondary-shades.data.ts";
+import { sysLightColorsFrom } from "../schema/colors-data/sys-light-colors.data.ts";
 
 Palette.propTypes = {
   mdTokens: PropTypes.object.isRequired,

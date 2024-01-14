@@ -1,7 +1,7 @@
 /**
  * This context has custom value and set function from useState hook. They both used in provider to make them available for every consumer. So useContext() somewhere you can get access to value and to fn for modification. It's a solution for loose coupled simple app state.
  */
-import { createContext, FC, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 interface FileContextProviderProps {
   children?: ReactNode;

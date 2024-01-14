@@ -1,11 +1,12 @@
-import { nl } from "src/utils/native-lodash.ts";
 import { StringIndex } from "src/typings";
+import { nl } from "src/utils/native-lodash.ts";
 
 export const sysLightColorsFrom = (tokens: StringIndex) => [
   [
     [
       {
         name: "Primary",
+        tokenPath: "md-sys-light-primary",
         bgColor: nl.get(tokens, "colors.md.sys.light.primary"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-primary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.primary"),
@@ -13,6 +14,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Primary",
+        tokenPath: "md-sys-light-on-primary",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-primary"),
         textColor: nl.get(tokens, "colors.md.sys.light.primary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-primary"),
@@ -22,6 +24,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Primary Container",
+        tokenPath: "md-sys-light-primary-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.primary-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-primary-container"),
         colorHash: nl.get(tokens, "colors.md.sys.light.primary-container"),
@@ -29,6 +32,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Primary Container",
+        tokenPath: "md-sys-light-on-primary-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-primary-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-primary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-primary-container"),
@@ -40,6 +44,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Secondary",
+        tokenPath: "md-sys-light-secondary",
         bgColor: nl.get(tokens, "colors.md.sys.light.secondary"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-secondary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.secondary"),
@@ -47,6 +52,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Secondary",
+        tokenPath: "md-sys-light-on-secondary",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-secondary"),
         textColor: nl.get(tokens, "colors.md.sys.light.secondary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-secondary"),
@@ -56,6 +62,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Secondary Container",
+        tokenPath: "md-sys-light-secondary-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.secondary-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-secondary-container"),
         colorHash: nl.get(tokens, "colors.md.sys.light.secondary-container"),
@@ -63,6 +70,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Secondary Container",
+        tokenPath: "md-sys-light-on-secondary-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-secondary-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-secondary"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-secondary-container"),
@@ -74,6 +82,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Error",
+        tokenPath: "md-sys-light-error",
         bgColor: nl.get(tokens, "colors.md.sys.light.error"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-error"),
         colorHash: nl.get(tokens, "colors.md.sys.light.error"),
@@ -81,6 +90,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Error",
+        tokenPath: "md-sys-light-on-error",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-error"),
         textColor: nl.get(tokens, "colors.md.sys.light.error"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-error"),
@@ -90,6 +100,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Error Container",
+        tokenPath: "md-sys-light-error-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.error-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-error-container"),
         colorHash: nl.get(tokens, "colors.md.sys.light.error-container"),
@@ -97,6 +108,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Error Container",
+        tokenPath: "md-sys-light-on-error-container",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-error-container"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-error"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-error-container"),
@@ -108,6 +120,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Background",
+        tokenPath: "md-sys-light-background",
         bgColor: nl.get(tokens, "colors.md.sys.light.background"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-background"),
         colorHash: nl.get(tokens, "colors.md.sys.light.background"),
@@ -115,6 +128,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Background",
+        tokenPath: "md-sys-light-on-background",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-background"),
         textColor: nl.get(tokens, "colors.md.sys.light.background"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-background"),
@@ -124,6 +138,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Surface",
+        tokenPath: "md-sys-light-surface",
         bgColor: nl.get(tokens, "colors.md.sys.light.surface"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-surface"),
         colorHash: nl.get(tokens, "colors.md.sys.light.surface"),
@@ -131,6 +146,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Surface",
+        tokenPath: "md-sys-light-on-surface",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-surface"),
         textColor: nl.get(tokens, "colors.md.sys.light.surface"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-surface"),
@@ -142,6 +158,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Outline",
+        tokenPath: "md-sys-light-outline",
         bgColor: nl.get(tokens, "colors.md.sys.light.outline"),
         textColor: nl.get(tokens, "colors.md.sys.light.background"),
         colorHash: nl.get(tokens, "colors.md.sys.light.outline"),
@@ -149,6 +166,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "Outline Variant",
+        tokenPath: "md-sys-light-outline-variant",
         bgColor: nl.get(tokens, "colors.md.sys.light.outline-variant"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-surface"),
         colorHash: nl.get(tokens, "colors.md.sys.light.outline-variant"),
@@ -158,6 +176,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
     [
       {
         name: "Surface Variant",
+        tokenPath: "md-sys-light-surface-variant",
         bgColor: nl.get(tokens, "colors.md.sys.light.surface-variant"),
         textColor: nl.get(tokens, "colors.md.sys.light.on-surface-variant"),
         colorHash: nl.get(tokens, "colors.md.sys.light.surface-variant"),
@@ -165,6 +184,7 @@ export const sysLightColorsFrom = (tokens: StringIndex) => [
       },
       {
         name: "On Surface Variant",
+        tokenPath: "md-sys-light-on-surface-variant",
         bgColor: nl.get(tokens, "colors.md.sys.light.on-surface-variant"),
         textColor: nl.get(tokens, "colors.md.sys.light.surface"),
         colorHash: nl.get(tokens, "colors.md.sys.light.on-surface-variant"),

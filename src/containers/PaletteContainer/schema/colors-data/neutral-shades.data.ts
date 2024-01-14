@@ -1,9 +1,10 @@
-import { nl } from "src/utils/native-lodash.ts";
 import { StringIndex } from "src/typings";
+import { nl } from "src/utils/native-lodash.ts";
 
 export const neutralShadesFrom = (tokens: StringIndex) => [
   {
     name: "Scrim",
+    tokenPath: "md-sys-light-scrim",
     bgColor: nl.get(tokens, "colors.md.sys.light.scrim"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral10"),
     colorHash: nl.get(tokens, "colors.md.sys.light.scrim"),
@@ -11,6 +12,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Shadow",
+    tokenPath: "md-sys-light-shadow",
     bgColor: nl.get(tokens, "colors.md.sys.light.shadow"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral10"),
     colorHash: nl.get(tokens, "colors.md.sys.light.shadow"),
@@ -18,6 +20,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "",
+    tokenPath: "md-ref-pal-neutral400",
     bgColor: nl.get(tokens, "colors.md.ref.pal.neutral400"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral10"),
     colorHash: nl.get(tokens, "colors.md.ref.pal.neutral400"),
@@ -25,6 +28,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "",
+    tokenPath: "md-ref-pal-neutral300",
     bgColor: nl.get(tokens, "colors.md.ref.pal.neutral300"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral10"),
     colorHash: nl.get(tokens, "colors.md.ref.pal.neutral300"),
@@ -32,6 +36,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "",
+    tokenPath: "md-ref-pal-neutral200",
     bgColor: nl.get(tokens, "colors.md.ref.pal.neutral200"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.ref.pal.neutral200"),
@@ -39,6 +44,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surface Dim",
+    tokenPath: "md-sys-light-surface-dim",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-dim"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-dim"),
@@ -46,6 +52,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surf. Cntr. Highest",
+    tokenPath: "md-sys-light-surface-container-highest",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-container-highest"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-container-highest"),
@@ -53,6 +60,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surf. Cntr. High",
+    tokenPath: "md-sys-light-surface-container-high",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-container-high"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-container-high"),
@@ -60,6 +68,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surf. Cntr.",
+    tokenPath: "md-sys-light-surface-container",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-container"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-container"),
@@ -67,6 +76,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surf. Cntr. Low",
+    tokenPath: "md-sys-light-surface-container-low",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-container-low"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-container-low"),
@@ -74,6 +84,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surface",
+    tokenPath: "md-sys-light-surface",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface"),
@@ -81,6 +92,7 @@ export const neutralShadesFrom = (tokens: StringIndex) => [
   },
   {
     name: "Surf. Cntr. Lowest",
+    tokenPath: "md-sys-light-surface-lowest",
     bgColor: nl.get(tokens, "colors.md.sys.light.surface-container-lowest"),
     textColor: nl.get(tokens, "colors.md.ref.pal.neutral900"),
     colorHash: nl.get(tokens, "colors.md.sys.light.surface-container-lowest"),

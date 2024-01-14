@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 
+import { Tooltip, TooltipContent, TooltipTrigger } from "src/components/Tooltip.tsx";
 import type { StringIndex } from "src/typings/index.d.ts";
 import { classNames } from "src/utils/classNames.ts";
 
@@ -36,16 +37,17 @@ export function ColorShadeName({ shadeName, toShowOnHover }: StringIndex) {
   );
 }
 
-export function KeyColor({ name, textColor, bgColor, colorHash }: StringIndex) {
+export function KeyColor({ name, textColor, bgColor, colorHash, tokenPath }: StringIndex) {
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
   `;
 
   return (
-    <div
-      css={style}
-      className={`
+    <Tooltip>
+      <TooltipTrigger
+        css={style}
+        className={`
       flex items-start justify-center w-full p-1
       relative
       rounded-lg
@@ -54,10 +56,12 @@ export function KeyColor({ name, textColor, bgColor, colorHash }: StringIndex) {
       hover:cursor-pointer
       transition-all
     `}
-    >
-      {name}
-      <ColorHashText color={colorHash} />
-    </div>
+      >
+        {name}
+        <ColorHashText color={colorHash} />
+      </TooltipTrigger>
+      <TooltipContent className="Tooltip">{tokenPath}</TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -71,16 +75,18 @@ export function PaletteColorPair({ colorPair }: StringIndex) {
   );
 }
 
-export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName }: StringIndex) {
+export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName, tokenPath }: StringIndex) {
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
   `;
 
   return (
-    <div
-      css={style}
-      className={`
+    <Tooltip>
+      <TooltipTrigger
+        data-component="PaletteColor"
+        css={style}
+        className={`
           flex items-start justify-start w-full p-1 h-14 
           last:h-12 last:text-[12px]
           relative text-[14px]
@@ -90,24 +96,27 @@ export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName }:
           hover:cursor-pointer
           transition-all
         `}
-    >
-      {name}
-      <ColorHashText color={colorHash} />
-      <ColorShadeName shadeName={shadeName} />
-    </div>
+      >
+        {name}
+        <ColorHashText color={colorHash} />
+        <ColorShadeName shadeName={shadeName} />
+      </TooltipTrigger>
+      <TooltipContent className="Tooltip">{tokenPath}</TooltipContent>
+    </Tooltip>
   );
 }
 
-export function ColorShade({ name, textColor, bgColor, colorHash, shadeName }: StringIndex) {
+export function ColorShade({ name, textColor, bgColor, colorHash, shadeName, tokenPath }: StringIndex) {
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
   `;
 
   return (
-    <div
-      css={style}
-      className={`
+    <Tooltip>
+      <TooltipTrigger
+        css={style}
+        className={`
           flex justify-start w-full h-8 
           relative 
           items-center hover:items-start
@@ -120,11 +129,13 @@ export function ColorShade({ name, textColor, bgColor, colorHash, shadeName }: S
           hover:cursor-pointer
           transition-all
         `}
-    >
-      {name}
-      <ColorHashText color={colorHash} toShowOnHover />
-      <ColorShadeName shadeName={shadeName} toShowOnHover />
-    </div>
+      >
+        {name}
+        <ColorHashText color={colorHash} toShowOnHover />
+        <ColorShadeName shadeName={shadeName} toShowOnHover />
+      </TooltipTrigger>
+      <TooltipContent className="Tooltip">{tokenPath}</TooltipContent>
+    </Tooltip>
   );
 }
 

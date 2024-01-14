@@ -1,16 +1,17 @@
-import joi from "joi";
-import type { StringIndex } from "src/typings/index.d.ts";
 import { LoggerService } from "@ciklum/logan";
+import joi from "joi";
 import { toast } from "react-toastify";
+import type { StringIndex } from "src/typings/index.d.ts";
 
-import { classNames } from "src/utils/classNames.ts";
 import { nl } from "src/utils/native-lodash.ts";
 
-import Palette from "./components/Palette.tsx";
 import { useContext, useEffect, useState } from "react";
 import { FileContext } from "src/contexts/FileContext.tsx";
-import { mdTokensSchema } from "./schema/mdTokensSchema.ts";
+import Palette from "./components/Palette.tsx";
 import PalettePlaceholder from "./components/PalettePlaceholder.tsx";
+import { mdTokensSchema } from "./schema/mdTokensSchema.ts";
+
+import * as themeJson from "src/stylesheets/mdpal-design-tokens-v1.ts";
 
 const logger = new LoggerService();
 logger.setTitle("PaletteContainer");
@@ -33,6 +34,12 @@ export default function PaletteContainer() {
       toast.error(`File schema validation failed: ${(err as Error).message}`);
     }
   }
+
+  //tmp to skip choose file dialog
+  useEffect(() => {
+    const mdTokenString = JSON.stringify(themeJson);
+    processFileContent(mdTokenString);
+  }, []);
 
   useEffect(() => {
     if (!file) return;

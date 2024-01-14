@@ -3,7 +3,7 @@
 //  { 
 //    colors : md :
 //    sys : light + dark
-//    ref : palette : 
+//    ref : pal : 
 //      primary, secondary, neutral, neutral-variant
 //      primaryXXX, secondaryXXX, errorXXX, neutralXXX, neutral-variantXXX
 //  }

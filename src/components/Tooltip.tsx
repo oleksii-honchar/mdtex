@@ -53,7 +53,7 @@ export function useTooltip({
       offset(ARROW_HEIGHT + GAP),
       autoPlacement({
         crossAxis: true,
-        allowedPlacements: ["top-start", "bottom-end"],
+        allowedPlacements: ["top-start", "top-end", "bottom-start", "bottom-end"],
       }),
       shift({ padding: 5 }),
     ],
