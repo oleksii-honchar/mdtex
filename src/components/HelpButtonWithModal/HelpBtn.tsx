@@ -23,7 +23,7 @@ export function HelpBtn() {
       >
         ?
       </TooltipTrigger>
-      <TooltipContent className="Tooltip">My tooltip</TooltipContent>
+      <TooltipContent className="Tooltip">Get some help...</TooltipContent>
       <HelpModalDialog setIsOpen={setIsOpen} isOpen={isOpen} />
     </Tooltip>
   );

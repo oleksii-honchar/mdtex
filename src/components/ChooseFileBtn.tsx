@@ -41,7 +41,7 @@ export function ChooseFileBtn() {
         </label>
         <input id="fileInput" type="file" accept=".json" style={{ display: "none" }} onChange={handleFileChange} />
       </TooltipTrigger>
-      <TooltipContent className="Tooltip">My tooltip</TooltipContent>
+      <TooltipContent className="Tooltip">Choose theme json file</TooltipContent>
     </Tooltip>
   );
 }

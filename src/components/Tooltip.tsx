@@ -3,8 +3,8 @@ import {
   FloatingArrow,
   FloatingPortal,
   arrow,
+  autoPlacement,
   autoUpdate,
-  flip,
   offset,
   shift,
   useDismiss,
@@ -14,6 +14,7 @@ import {
   useInteractions,
   useMergeRefs,
   useRole,
+  useTransitionStyles,
 } from "@floating-ui/react";
 import * as React from "react";
 import { useRef } from "react";
@@ -50,10 +51,9 @@ export function useTooltip({
         element: arrowRef.current,
       }),
       offset(ARROW_HEIGHT + GAP),
-      flip({
-        crossAxis: placement.includes("-"),
-        fallbackAxisSideDirection: "start",
-        padding: 5,
+      autoPlacement({
+        crossAxis: true,
+        allowedPlacements: ["top-start", "bottom-end"],
       }),
       shift({ padding: 5 }),
     ],
@@ -73,6 +73,22 @@ export function useTooltip({
 
   const interactions = useInteractions([hover, focus, dismiss, role]);
 
+  const { isMounted, styles } = useTransitionStyles(context, {
+    initial: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+    },
+    close: {
+      opacity: 0,
+    },
+    duration: {
+      open: 300,
+      close: 150,
+    },
+  });
+
   return React.useMemo(
     () => ({
       open,
@@ -80,8 +96,12 @@ export function useTooltip({
       arrowRef,
       ...interactions,
       ...data,
+      transition: {
+        isMounted,
+        style: styles,
+      },
     }),
-    [open, setOpen, interactions, data, arrowRef],
+    [open, setOpen, interactions, data, arrowRef, styles, isMounted],
   );
 }
 
@@ -145,21 +165,26 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
   const context = useTooltipContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
-  if (!context.open) return null;
+  if (!context.transition.isMounted) return null;
+
+  console.log(JSON.stringify(context.transition));
 
   return (
     <FloatingPortal>
-      <div
-        ref={ref}
-        style={{
-          ...context.floatingStyles,
-          ...style,
-        }}
-        {...context.getFloatingProps(props)}
-      >
-        <FloatingArrow ref={context.arrowRef} context={context} tipRadius={2} fill="#444" />
-        {children}
-      </div>
+      {context.transition.isMounted && (
+        <div
+          ref={ref}
+          style={{
+            ...style,
+            ...context.floatingStyles,
+            ...context.transition.style,
+          }}
+          {...context.getFloatingProps(props)}
+        >
+          <FloatingArrow ref={context.arrowRef} context={context} tipRadius={2} fill="#444" />
+          {children}
+        </div>
+      )}
     </FloatingPortal>
   );
 });
