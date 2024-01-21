@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
+import { useContext } from "react";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "src/components/Tooltip.tsx";
+import { ClipboardContext } from "src/contexts/ClipboardContext";
 import type { StringIndex } from "src/typings/index.d.ts";
 import { classNames } from "src/utils/classNames.ts";
 
@@ -38,6 +40,8 @@ export function ColorShadeName({ shadeName, toShowOnHover }: StringIndex) {
 }
 
 export function KeyColor({ name, textColor, bgColor, colorHash, tokenPath }: StringIndex) {
+  const { content, setContent } = useContext(ClipboardContext);
+
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
@@ -48,14 +52,17 @@ export function KeyColor({ name, textColor, bgColor, colorHash, tokenPath }: Str
       <TooltipTrigger
         css={style}
         className={`
-      flex items-start justify-center w-full p-1
-      relative
-      rounded-lg
-      border-2 border-transparent
-      hover:border-md-sys-light-outline
-      hover:cursor-pointer
-      transition-all
-    `}
+          flex items-start justify-center w-full p-1
+          relative
+          rounded-lg
+          border-2 border-transparent
+          hover:border-md-sys-light-outline
+          hover:cursor-pointer
+          transition-all
+        `}
+        onClick={() => {
+          setContent(tokenPath);
+        }}
       >
         {name}
         <ColorHashText color={colorHash} />
@@ -76,6 +83,8 @@ export function PaletteColorPair({ colorPair }: StringIndex) {
 }
 
 export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName, tokenPath }: StringIndex) {
+  const { content, setContent } = useContext(ClipboardContext);
+
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
@@ -96,6 +105,9 @@ export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName, t
           hover:cursor-pointer
           transition-all
         `}
+        onClick={() => {
+          setContent(tokenPath);
+        }}
       >
         {name}
         <ColorHashText color={colorHash} />
@@ -107,6 +119,8 @@ export function PaletteColor({ name, textColor, bgColor, colorHash, shadeName, t
 }
 
 export function ColorShade({ name, textColor, bgColor, colorHash, shadeName, tokenPath }: StringIndex) {
+  const { content, setContent } = useContext(ClipboardContext);
+
   const style = css`
     color: ${textColor};
     background-color: ${bgColor};
@@ -129,6 +143,9 @@ export function ColorShade({ name, textColor, bgColor, colorHash, shadeName, tok
           hover:cursor-pointer
           transition-all
         `}
+        onClick={() => {
+          setContent(tokenPath);
+        }}
       >
         {name}
         <ColorHashText color={colorHash} toShowOnHover />

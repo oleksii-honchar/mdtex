@@ -1,10 +1,11 @@
-import { lazy, Suspense, ReactElement } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ReactElement, Suspense, lazy } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { BigSpinner } from "src/components/BigSpinner.tsx";
-import { Layout } from "./components/Layout.tsx";
 import { ErrorBoundary } from "src/components/ErrorBoundary.tsx";
+import { Layout } from "./components/Layout.tsx";
 
+import { ClipboardContextProvider } from "src/contexts/ClipboardContext.tsx";
 import { FileContextProvider } from "src/contexts/FileContext.tsx";
 
 const ConvertorPage = lazy(() => import("src/pages/Explorer/ExplorerPage.tsx"));
@@ -26,9 +27,11 @@ const router = createBrowserRouter([
 export function Root(): ReactElement {
   return (
     <Suspense fallback={<BigSpinner />}>
-      <FileContextProvider>
-        <RouterProvider router={router} />
-      </FileContextProvider>
+      <ClipboardContextProvider>
+        <FileContextProvider>
+          <RouterProvider router={router} />
+        </FileContextProvider>
+      </ClipboardContextProvider>
     </Suspense>
   );
 }

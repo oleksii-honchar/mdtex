@@ -1,8 +1,7 @@
 // @ts-nocheck
-import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes, { InferProps } from "prop-types";
-import { BsArrowRightShort } from "react-icons/bs";
+import { Fragment } from "react";
 
 HelpModalDialog.propTypes = {
   isOpen: PropTypes.bool,

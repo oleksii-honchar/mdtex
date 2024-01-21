@@ -41,6 +41,7 @@ export function useTooltip({
   const GAP = 2;
   const arrowRef = useRef(null);
 
+  // https://floating-ui.com/docs/react
   const data = useFloating({
     placement,
     open,
@@ -53,7 +54,7 @@ export function useTooltip({
       offset(ARROW_HEIGHT + GAP),
       autoPlacement({
         crossAxis: true,
-        allowedPlacements: ["top-start", "top-end", "bottom-start", "bottom-end"],
+        allowedPlacements: ["bottom", "bottom-start", "bottom-end"],
       }),
       shift({ padding: 5 }),
     ],
@@ -167,7 +168,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
 
   if (!context.transition.isMounted) return null;
 
-  console.log(JSON.stringify(context.transition));
+  //console.log(JSON.stringify(context.transition));
 
   return (
     <FloatingPortal>
@@ -181,7 +182,13 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
           }}
           {...context.getFloatingProps(props)}
         >
-          <FloatingArrow ref={context.arrowRef} context={context} tipRadius={2} fill="#444" />
+          <FloatingArrow
+            ref={context.arrowRef}
+            context={context}
+            tipRadius={2}
+            fill="#C1C7CE"
+            className="tooltip-arrow"
+          />
           {children}
         </div>
       )}
